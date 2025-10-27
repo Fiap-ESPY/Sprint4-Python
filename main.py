@@ -133,7 +133,10 @@ def main():
 
 
 if __name__ == "__main__":
-    # Cria usuários padrão se não existirem
+    # Garante que o diretório 'jsons' exista
+    os.makedirs("jsons", exist_ok=True)
+
+    # Cria usuários padrão se o arquivo não existir
     if not os.path.exists("jsons/users.json"):
         default_users = [
             {"username": "admin", "password": "123", "role": "admin"},
